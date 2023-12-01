@@ -1,5 +1,3 @@
-with open("input.txt", "r") as f:
-    puzzle_inputs = f.readlines()
 
 def get_first_digit(line: str) -> str:
     for i in line:
@@ -14,5 +12,10 @@ def get_last_digit(line: str) -> str:
 def combine_digit(line: str) -> int:
     return int(get_first_digit(line) + get_last_digit(line))
 
-result = sum([combine_digit(i) for i in puzzle_inputs])
+result = 0
+
+with open("input.txt", "r") as f:
+    for i in f:
+        result += combine_digit(i)
+
 print(result)
